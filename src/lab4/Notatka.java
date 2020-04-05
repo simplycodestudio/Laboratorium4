@@ -1,3 +1,5 @@
+package lab4;
+
 import java.io.Serializable;
 
 public class Notatka implements Comparable<Notatka>, Serializable {
@@ -13,9 +15,14 @@ public class Notatka implements Comparable<Notatka>, Serializable {
         wersja = 0;
     }
 
-    public void zmienTresc(String _tresc) {
-        tresc = _tresc;
-        wersja++;
+    public boolean zmienTresc(String _tresc) {
+        if (wersja == 3) {
+            return false;
+        } else {
+            tresc = _tresc;
+            wersja++;
+        }
+        return true;
     }
 
     public static Notatka zanotuj(String tresc) {
@@ -31,13 +38,17 @@ public class Notatka implements Comparable<Notatka>, Serializable {
 
     @Override
     public int compareTo(Notatka innaNotatka) {
-        if (this.nr == innaNotatka.nr){
+        if (this.nr == innaNotatka.nr) {
             return 0;
-        } else if (this.nr > innaNotatka.nr){
+        } else if (this.nr > innaNotatka.nr) {
             return 1;
         } else {
             return -1;
         }
 
+    }
+
+    public int getNr() {
+        return nr;
     }
 }

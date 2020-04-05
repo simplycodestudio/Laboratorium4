@@ -1,9 +1,10 @@
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+package lab4;
 
-public class Skoroszyt extends ArrayList<Notatka> {
+import java.io.*;
+import java.util.*;
+
+public class Skoroszyt extends LinkedList<Notatka> {
+
 
 
     public void pokazWszystkie() {
@@ -14,6 +15,19 @@ public class Skoroszyt extends ArrayList<Notatka> {
             System.out.println(n);
         }
         System.out.println();
+
+        pokazNajstarsza();
+        pokazNajnowsza();
+    }
+
+    private void pokazNajnowsza() {
+        System.out.println("Najnowsze");
+        System.out.println(Collections.max(this));
+    }
+
+    private void pokazNajstarsza() {
+        System.out.println("Najstarsze");
+        System.out.println(Collections.min(this));
     }
 
 
@@ -53,5 +67,17 @@ public class Skoroszyt extends ArrayList<Notatka> {
             return null;
         }
 
+    }
+
+    @Override
+    public boolean add(Notatka notatka) {
+        if (this.size() < 5){
+        return super.add(notatka); }
+        else
+        {
+            super.removeFirst();
+            super.add(notatka);
+        }
+        return true;
     }
 }

@@ -21,7 +21,7 @@ public class AplikacjaTest {
             notatka1.zmienTresc("zmiana " + licznik++);
             LOGGER.info("notatka nr " + notatka1.getNr() + " została zmodyfikowana " + licznik + " raz");
             if (licznik == 3){
-                LOGGER.info("PODEJŚCIE NUMER 4. Oczekiwanie odmowy edycji");
+                LOGGER.info("PODEJŚCIE NUMER 4. Pozytywny przejście testu oznacza odmowę edycji");
                 assertFalse(notatka1.zmienTresc("zmiana " + licznik));
             }
         }

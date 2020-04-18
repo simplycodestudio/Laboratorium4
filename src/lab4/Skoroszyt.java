@@ -50,7 +50,7 @@ public class Skoroszyt extends LinkedList<Notatka> {
 
     static Skoroszyt odczytZPliku(String nazwaPliku) {
         try {
-            FileInputStream strumienPlikowy = new FileInputStream(nazwaPliku);
+            InputStream strumienPlikowy = new FileInputStream(nazwaPliku);
             ObjectInputStream strumienObiektowy = new ObjectInputStream(strumienPlikowy);
             Skoroszyt s = (Skoroszyt) strumienObiektowy.readObject();
             strumienObiektowy.close();
